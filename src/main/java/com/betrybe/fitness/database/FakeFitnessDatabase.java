@@ -35,7 +35,7 @@ public class FakeFitnessDatabase {
    * Takes a workout object, assigns it an ID if it doesn't already have one,
    * and saves to the fake database. Always returns a new object (the saved one).
    */
-  public Workout saveWorkout(Workout workout) {git@github.com:tryber/java-026-java-exercicio-fitness-api.git
+  public Workout saveWorkout(Workout workout) {
     Workout newWorkout = new Workout();
     newWorkout.setId(workout.getId());
     newWorkout.setName(workout.getName());
