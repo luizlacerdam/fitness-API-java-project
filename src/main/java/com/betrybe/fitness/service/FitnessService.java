@@ -3,6 +3,7 @@ package com.betrybe.fitness.service;
 import com.betrybe.fitness.database.FakeFitnessDatabase;
 import com.betrybe.fitness.dto.WorkoutCreationDto;
 import com.betrybe.fitness.dto.WorkoutDto;
+import com.betrybe.fitness.model.Workout;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,8 +31,17 @@ public class FitnessService implements FitnessServiceInterface{
 
   @Override
   public Optional<WorkoutDto> getWorkout(Long id) {
-    fakeFitnessDatabase.getWorkout(id);
-    return Optional.empty();
+    Optional<Workout> workoutOptional = fakeFitnessDatabase.getWorkout(id);
+
+    if (workoutOptional.isEmpty()) {
+      return Optional.empty();
+    }
+    Workout workout = workoutOptional.get();
+    WorkoutDto workoutDto = new WorkoutDto(workout.getId(),
+        workout.getName(), workout.getRepetitions());
+
+    return Optional.of(workoutDto);
+
   }
 
   @Override
