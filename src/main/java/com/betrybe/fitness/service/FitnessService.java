@@ -26,7 +26,15 @@ public class FitnessService implements FitnessServiceInterface{
   }
   @Override
   public WorkoutDto saveWorkout(WorkoutCreationDto newWorkoutDto) {
-    return null;
+    Workout newWorkout = new Workout();
+    newWorkout.setName(newWorkoutDto.name());
+    newWorkout.setRepetitions(newWorkoutDto.repetitions());
+    newWorkout.setSecretTechnique(newWorkoutDto.secretTechnique());
+
+    Workout workout = fakeFitnessDatabase.saveWorkout(newWorkout);
+
+    return new WorkoutDto(workout.getId(),
+        workout.getName(), workout.getRepetitions());
   }
 
   @Override
