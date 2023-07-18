@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/fitness")
 public class FitnessController implements FitnessControllerInterface {
 
-  private FitnessService service;
+  FitnessService service;
   @Autowired
   public FitnessController(FitnessService service) {
     this.service = service;
