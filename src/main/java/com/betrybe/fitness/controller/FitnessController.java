@@ -16,11 +16,15 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * Classe contreller.
+ */
 @RestController
 @RequestMapping("/fitness")
 public class FitnessController implements FitnessControllerInterface {
 
   FitnessService service;
+
   @Autowired
   public FitnessController(FitnessService service) {
     this.service = service;
@@ -31,6 +35,9 @@ public class FitnessController implements FitnessControllerInterface {
     return "Boas vindas à API de Fitness!";
   }
 
+  /**
+   * Metodos.
+   */
   @GetMapping("/workouts/{id}")
   public ResponseEntity<WorkoutDto> getWorkout(@PathVariable Long id) {
     Optional<WorkoutDto> workoutDto = service.getWorkout(id);

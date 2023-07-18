@@ -11,20 +11,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
- * Classe FitnesseService
+ * Classe FitnesseService.
  */
 @Service
-public class FitnessService implements FitnessServiceInterface{
+public class FitnessService implements FitnessServiceInterface {
   FakeFitnessDatabase fakeFitnessDatabase;
 
   /**
    * Construtor da classe.
-   * @param fakeFitnessDatabase
    */
   @Autowired
-  public FitnessService(FakeFitnessDatabase fakeFitnessDatabase){
+  public FitnessService(FakeFitnessDatabase fakeFitnessDatabase) {
     this.fakeFitnessDatabase = fakeFitnessDatabase;
   }
+
   @Override
   public WorkoutDto saveWorkout(WorkoutCreationDto newWorkoutDto) {
     Workout newWorkout = new Workout();
@@ -66,7 +66,7 @@ public class FitnessService implements FitnessServiceInterface{
           )
       );
     }
-  return allWorkouts;
+    return allWorkouts;
   }
 
 }
