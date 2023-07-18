@@ -5,6 +5,7 @@ import com.betrybe.fitness.dto.WorkoutCreationDto;
 import com.betrybe.fitness.dto.WorkoutDto;
 import java.util.List;
 import java.util.Optional;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -18,6 +19,7 @@ public class FitnessService implements FitnessServiceInterface{
    * Construtor da classe.
    * @param fakeFitnessDatabase
    */
+  @Autowired
   public FitnessService(FakeFitnessDatabase fakeFitnessDatabase){
     this.fakeFitnessDatabase = fakeFitnessDatabase;
   }
@@ -28,6 +30,7 @@ public class FitnessService implements FitnessServiceInterface{
 
   @Override
   public Optional<WorkoutDto> getWorkout(Long id) {
+    fakeFitnessDatabase.getWorkout(id);
     return Optional.empty();
   }
 
