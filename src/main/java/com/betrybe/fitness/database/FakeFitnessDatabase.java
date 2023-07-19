@@ -8,11 +8,12 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 /**
  * Class that simulates a fake database/repository.
  */
-@Component
+@Repository
 public class FakeFitnessDatabase {
   private final Map<Long, Workout> workouts;
 

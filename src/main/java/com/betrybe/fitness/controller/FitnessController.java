@@ -4,6 +4,7 @@ import com.betrybe.fitness.dto.WorkoutCreationDto;
 import com.betrybe.fitness.dto.WorkoutDto;
 import com.betrybe.fitness.model.Workout;
 import com.betrybe.fitness.service.FitnessService;
+import com.betrybe.fitness.service.FitnessServiceInterface;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,10 +24,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/fitness")
 public class FitnessController implements FitnessControllerInterface {
 
-  FitnessService service;
+  FitnessServiceInterface service;
 
   @Autowired
-  public FitnessController(FitnessService service) {
+  public FitnessController(FitnessServiceInterface service) {
     this.service = service;
   }
 
